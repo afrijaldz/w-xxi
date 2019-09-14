@@ -5,10 +5,20 @@ const Home = React.lazy(() => import('./pages/Home'))
 
 const App = () => (
   <BrowserRouter>
-    <Switch>
-      <Route exact component={Home} />
-    </Switch>
+    <React.Suspense fallback={<Loading />}>
+      <Switch>
+        <Route exact component={Home} />
+      </Switch>
+    </React.Suspense>
   </BrowserRouter>
 )
+
+function Loading() {
+  return (
+    <div>
+      Loading...
+    </div>
+  )
+}
 
 export default App;
