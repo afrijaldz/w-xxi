@@ -6,7 +6,7 @@ const NotFound = React.lazy(() => import('./pages/NotFound/NotFound'))
 const Header = React.lazy(() => import('./components/Header/Header'))
 
 const App = () => (
-  <BrowserRouter basename="/w-xxi/">
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <React.Suspense fallback={<Loading />}>
       <Header />
       <Switch>
