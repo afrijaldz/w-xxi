@@ -4,6 +4,7 @@ import Spinner from './components/Spinner/Spinner'
 
 const Home = React.lazy(() => import('./pages/Home/Home'))
 const NotFound = React.lazy(() => import('./pages/NotFound/NotFound'))
+const Movie = React.lazy(() => import('./pages/Movie/Movie'))
 const Header = React.lazy(() => import('./components/Header/Header'))
 
 const App = () => (
@@ -12,6 +13,7 @@ const App = () => (
       <Header />
       <Switch>
         <Route exact component={Home} path="/" />
+        <Route exact component={Movie} path="/:movieId" />
         <Route component={NotFound} />
       </Switch>
     </React.Suspense>
