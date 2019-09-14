@@ -1,0 +1,16 @@
+.wln-grid h1 {
+  font-family: 'Abel', sans-serif;
+  font-size: 42px;
+}
+
+.wln-grid-content {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+.wln-grid-element {
+  margin: 0 40px 40px 0;
+  background: #353535;
+  max-height: 430px;
+  overflow: hidden;
+}
