@@ -12,5 +12,33 @@
   margin: 0 40px 40px 0;
   background: #353535;
   max-height: 430px;
+  animation: gridAnimation 0.5s;
   overflow: hidden;
+}
+
+@keyframes gridAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.wln-grid-element:nth-child(4n+4) {
+  margin-right: 0;
+}
+
+@media screen and (max-width: 720px) {
+  .wln-grid-content {
+    grid-template-columns: auto auto;
+  }
+
+  .wln-grid-element:nth-child(2n+2) {
+    margin-right: 0;
+  }
+
+  .wln-grid h1 {
+    font-size: 22px;
+  }
 }
