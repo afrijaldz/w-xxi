@@ -8,6 +8,7 @@ import {
 } from '../../config'
 
 import HeroImage from '../../components/HeroImage/HeroImage'
+import SearchBar from '../../components/SearchBar/SearchBar'
 import './Home.css'
 
 class Home extends React.Component {
@@ -44,6 +45,7 @@ class Home extends React.Component {
               title={this.state.heroImage.original_title}
               text={this.state.heroImage.overview}
             />
+            <SearchBar />
           </div>
         ) : null}
       </div>
