@@ -3,7 +3,9 @@ import React from 'react'
 import { API_URL, API_KEY, APP_NAME } from '../../config'
 
 import Navigation from '../../components/Navigation/Navigation'
+import FourColGrid from '../../components/FourColGrid/FourColGrid'
 import MovieInfo from '../../components/MovieInfo/MovieInfo'
+import Actor from '../../components/Actor/Actor'
 
 class Movie extends React.Component {
   state = {
@@ -63,6 +65,16 @@ class Movie extends React.Component {
               movie={this.state.movie}
               directors={this.state.directors}
             />
+          </div>
+        ) : null}
+
+        {this.state.actors ? (
+          <div className="wln-moviegrid">
+            <FourColGrid header={'Actors'}>
+              {this.state.actors.map((actor, i) => (
+                <Actor actor={actor} key={i} />
+              ))}
+            </FourColGrid>
           </div>
         ) : null}
       </div>

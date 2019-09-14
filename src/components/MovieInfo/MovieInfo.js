@@ -1,6 +1,8 @@
 import React from 'react'
 import { IMAGE_BASE_URL, BACKDROP_SIZE, POSTER_SIZE } from '../../config'
 import MovieThumb from '../MovieThumb/MovieThumb'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFilm } from '@fortawesome/free-solid-svg-icons'
 import './MovieInfo.css'
 
 const MovieInfo = props => (
@@ -42,6 +44,7 @@ const MovieInfo = props => (
             <p key={i} className="wln-director">{element.name}</p>
           ))}
         </div>
+        <FontAwesomeIcon icon={faFilm} className="fa-film" />
       </div>
     </div>
   </div>
