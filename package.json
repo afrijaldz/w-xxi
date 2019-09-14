@@ -3,7 +3,7 @@
   "description": "wulan is movie",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://afrijaldz.github.io/w-xxi",
+  "homepage": "https://afrijaldz.github.io",
   "dependencies": {
     "gh-pages": "^2.1.1",
     "react": "^16.9.0",
