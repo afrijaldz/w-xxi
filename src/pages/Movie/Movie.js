@@ -1,18 +1,21 @@
 import React from 'react'
 
-import { API_URL, API_KEY } from '../../config'
+import { API_URL, API_KEY, APP_NAME } from '../../config'
 
 import Navigation from '../../components/Navigation/Navigation'
+import MovieInfo from '../../components/MovieInfo/MovieInfo'
 
 class Movie extends React.Component {
   state = {
     movie: null,
     loading: false,
+    directors: [],
+    actors: null,
   }
 
   componentDidMount() {
-    if (localStorage.getItem(this.props.match.params.movieId)) {
-      const state = JSON.parse(localStorage.getItem(this.props.match.params.movieId))
+    if (localStorage.getItem(`${APP_NAME}-${this.props.match.params.movieId}`)) {
+      const state = JSON.parse(localStorage.getItem(`${APP_NAME}-${this.props.match.params.movieId}`))
       this.setState({ ...state })
     } else {
       this.setState({ loading: true })
@@ -37,7 +40,7 @@ class Movie extends React.Component {
                   loading: false,
                   directors,
                 }, () => {
-                  localStorage.setItem(this.props.match.params.movieId, JSON.stringify(this.state))
+                  localStorage.setItem(`${APP_NAME}-${this.props.match.params.movieId}`, JSON.stringify(this.state))
                 })
               })
               .catch(error => {
@@ -55,7 +58,11 @@ class Movie extends React.Component {
       <div>
         {this.state.movie ? (
           <div>
-            <Navigation movie={this.props.location.movieName} />
+            <Navigation movie={this.state.movie.original_title} />
+            <MovieInfo
+              movie={this.state.movie}
+              directors={this.state.directors}
+            />
           </div>
         ) : null}
       </div>

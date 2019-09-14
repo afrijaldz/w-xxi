@@ -1,0 +1,91 @@
+.wln-movieinfo {
+  background-size: cover !important;
+  background-position: center !important;
+  width: 100%;
+  height: 600px;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  animation: animateMovieInfo 1s;
+}
+
+@keyframes animateMovieInfo {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.wln-movieinfo-content {
+  max-width: 1280px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  background: rgb(0, 0, 0, 0.7);
+  position: relative;
+}
+
+.wln-movieinfo-thumb {
+  width: 350px;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+}
+
+.wln-movieinfo-text {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  width: auto;
+  padding: 40px;
+  color: #fff;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: absolute;
+  left: 360px;
+}
+
+.wln-movieinfo-text h1 {
+  font-family: 'Abel', sans-serif;
+  font-size: 48px;
+  margin: 0;
+}
+
+.wln-movieinfo-text h3 {
+  font-size: 16px;
+  line-height: 0;
+  margin-top: 30px;
+}
+
+.wln-movieinfo-text p {
+  font-family: 'Abel', sans-serif;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.wln-rating {
+  width: 250px;
+  height: 20px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.wln-score {
+  position: absolute;
+  margin: 0;
+  right: 0px;
+  top: -3px;
+}
+
+.wln-director {
+  margin: 0;
+}
+
+.fa-film {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  color: #fff;
+}
