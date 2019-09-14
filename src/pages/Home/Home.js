@@ -13,6 +13,7 @@ import SearchBar from '../../components/SearchBar/SearchBar'
 import FourColGrid from '../../components/FourColGrid/FourColGrid'
 import MovieThumb from '../../components/MovieThumb/MovieThumb'
 import Spinner from '../../components/Spinner/Spinner'
+import LoadMore from '../../components/LoadMore/LoadMore'
 import './Home.css'
 
 class Home extends React.Component {
@@ -45,6 +46,17 @@ class Home extends React.Component {
       endpoint = `${API_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${searchTerm}`
     }
 
+    this.fetchItems(endpoint)
+  }
+
+  loadMoreItems = () => {
+    let endpoint = ''
+    this.setState({ loading: true })
+    if (this.state.searchTerm === '') {
+      endpoint = `${API_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=${this.state.currentPage + 1}`
+    } else {
+      endpoint = `${API_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${this.state.searchTerm}&page=${this.state.currentPage + 1}`
+    }
     this.fetchItems(endpoint)
   }
 
@@ -97,7 +109,7 @@ class Home extends React.Component {
           </FourColGrid>
           {this.state.loading ? <Spinner /> : null }
           {this.state.currentPage <= this.state.totalPages && !this.state.loading ? (
-            <div></div>
+            <LoadMore text="Load more" onClick={this.loadMoreItems} />
           ) : null}
         </div>
       </div>
