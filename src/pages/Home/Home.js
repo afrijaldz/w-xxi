@@ -12,12 +12,13 @@ import HeroImage from '../../components/HeroImage/HeroImage'
 import SearchBar from '../../components/SearchBar/SearchBar'
 import FourColGrid from '../../components/FourColGrid/FourColGrid'
 import MovieThumb from '../../components/MovieThumb/MovieThumb'
+import Spinner from '../../components/Spinner/Spinner'
 import './Home.css'
 
 class Home extends React.Component {
   state = {
     heroImage: null,
-    loading: false,
+    loading: true,
     movies: [],
     currentPage: 0,
     totalPages: 0,
@@ -94,6 +95,10 @@ class Home extends React.Component {
               />
             ))}
           </FourColGrid>
+          {this.state.loading ? <Spinner /> : null }
+          {this.state.currentPage <= this.state.totalPages && !this.state.loading ? (
+            <div></div>
+          ) : null}
         </div>
       </div>
     )
